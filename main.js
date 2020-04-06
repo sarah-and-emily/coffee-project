@@ -83,7 +83,7 @@ roastSelection.addEventListener('change', updateCoffees);
 tbody.innerHTML = renderCoffees(coffees);
 
 //adds DOM event when clicking on the submit button
-submitButton.addEventListener('click', updateCoffees);
+submitButton.addEventListener('click', keyCoffee);
 
 ////----------------------------
 
