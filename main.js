@@ -104,6 +104,20 @@ submitButton.addEventListener('submit', updateCoffees);
 // }
 //
 
+function addACoffee(){
+    // newcoffeename = document.getElementById('coffee-name').value;
+    // newcoffeeroast = document.getElementById('roast-selection-bottom').value;
+    // newcoffeeid = coffees.length + 1;
+    var newCoffee = {
+        id: coffees.length + 1,
+        name: document.getElementById('coffee-name').value,
+        roast: document.getElementById('roast-selection-bottom').value
+    };
+    coffees.push(newCoffee);
+    console.log(coffees);
+}
+addACoffee();
+
 // function updateCoffeeArray() {
 //     var newCoffeeObject = {
 //         name : ,
