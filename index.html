@@ -36,47 +36,49 @@
 
     <div class="container d-flex flex-column right-page">
         <div class="row">
-            <div class="form-group">
-                <label for="roast-selection-top">Roast</label>
-                <select class="form-control" id="roast-selection-top">
-                    <option>all</option>
-                    <option>light</option>
-                    <option>medium</option>
-                    <option>dark</option>
-                </select>
-
+            <div class="d-flex flex-column col-6 selectaroast">
                 <div class="form-group">
-                    <label for="coffee-name">Coffee Name</label>
-                    <input type="text" class="form-control" id="coffee-name">
-                </div>
+                    <label for="roast-selection-top">Roast</label>
+                    <select class="form-control" id="roast-selection-top">
+                        <option>all</option>
+                        <option>light</option>
+                        <option>medium</option>
+                        <option>dark</option>
+                    </select>
 
-                <button id="first-submit" type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                    <div class="form-group">
+                        <label for="coffee-name">Coffee Name</label>
+                        <input type="text" class="form-control" id="coffee-name">
+                    </div>
+
+                    <button id="first-submit" type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                </div>
             </div>
 
 
 <!--            <hr>-->
+<!-- THIS IS THE START OF THE BONUS-->
+<!--            <div class="d-flex justify-content-center">-->
+<!--                <h3>Add a Coffee</h3>-->
+<!--            </div>-->
 
-            <div class="d-flex justify-content-center">
-                <h3>Add a Coffee</h3>
-            </div>
+<!--            <div class="form-group">-->
+<!--                <label for="roast-selection-bottom">Roast</label>-->
+<!--&lt;!&ndash;                might need to change ID below to roast-selection to match ID as top&ndash;&gt;-->
+<!--                <select class="form-control" id="roast-selection-bottom">-->
+<!--                    <option>all</option>-->
+<!--                    <option>light</option>-->
+<!--                    <option>medium</option>-->
+<!--                    <option>dark</option>-->
+<!--                </select>-->
 
-            <div class="form-group">
-                <label for="roast-selection-bottom">Roast</label>
-<!--                might need to change ID below to roast-selection to match ID as top-->
-                <select class="form-control" id="roast-selection-bottom">
-                    <option>all</option>
-                    <option>light</option>
-                    <option>medium</option>
-                    <option>dark</option>
-                </select>
+<!--                <div class="form-group">-->
+<!--                    <label for="coffee-name">Name</label>-->
+<!--                    <input type="text" class="form-control" id="coffee-name">-->
+<!--                </div>-->
 
-                <div class="form-group">
-                    <label for="coffee-name">Name</label>
-                    <input type="text" class="form-control" id="coffee-name">
-                </div>
-
-                <button id="second-submit" type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
-            </div>
+<!--                <button id="second-submit" type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>-->
+<!--            </div>-->
 
 
         </div>

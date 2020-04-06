@@ -1,11 +1,11 @@
-"use strict"
+"use strict";
 
 //Renders coffee cards and put html tags on them
 function renderCoffee(coffee) {
-    var html = '<div class="coffee card align-items-center">';
+    var html = '<div class="card align-items-center">';
     // html += '<div>' + coffee.id + '</div>';
-    html += '<div>' + coffee.name + '</div>';
-    html += '<div>' + coffee.roast + '</div>';
+    html += '<h6>' + coffee.name + '</h6>';
+    html += '<p>' + coffee.roast + '</p>';
     html += '</div>';
 
     return html;
@@ -26,7 +26,7 @@ function updateCoffees(e) {
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) || (selectedRoast === "all") {
+        if ((coffee.roast === selectedRoast) || (selectedRoast === "all")) {
             filteredCoffees.push(coffee);
         }
     });
@@ -51,10 +51,33 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+// converts keyed-in coffee names to lowercase, matches them to the id "coffee-name"
+function keyCoffee() {
+    var html = '';
+    for(var i = 0; i < coffees.length; i++) {
+        if(coffees[i].name.toLowerCase().includes(document.getElementById('coffee-name').value.toLowerCase())) {
+            console.log(coffees.name);
+            html += renderCoffee(coffees[i]);
+        }
+        tbody.innerHTML = html;
+    }
+    return html;
+}
+
+
+
+//adds DOM even when keying in coffee name
+document.getElementById('coffee-name').addEventListener('keyup', keyCoffee);
+
 var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
+var submitButton = document.querySelector('#first-submit');
+
+// adds DOM event when the dropdown button is changed/clicked
 var roastSelection = document.querySelector('#roast-selection-top');
+roastSelection.addEventListener('change', updateCoffees);
 
 tbody.innerHTML = renderCoffees(coffees);
 
-submitButton.addEventListener('click', updateCoffees);
+//adds DOM event when clicking on the submit button
+submitButton.addEventListener('submit', updateCoffees);
+
