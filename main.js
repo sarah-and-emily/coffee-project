@@ -40,15 +40,17 @@ var coffees = [
 ];
 
 
+var selectedRoast = null;
 
 //This is the drop-down row selection
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
+    selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
         if ((coffee.roast === selectedRoast) || (selectedRoast === "all") ) {
             filteredCoffees.push(coffee);
+
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
@@ -58,7 +60,7 @@ function updateCoffees(e) {
 function keyCoffee() {
     var html = '';
     for(var i = 0; i < coffees.length; i++) {
-        if(coffees[i].name.toLowerCase().includes(document.getElementById('coffee-name').value.toLowerCase())) {
+        if(coffees[i].name.toLowerCase().includes(document.getElementById('coffee-name').value.toLowerCase()) &&  (selectedRoast === coffees[i].roast.includes(document.getElementById('roast-selection-top').value))) {
             console.log(coffees.name);
             html += renderCoffee(coffees[i]);
         }
@@ -69,7 +71,7 @@ function keyCoffee() {
 
 
 
-//adds DOM even when keying in coffee name
+//adds DOM event when keying in coffee name
 document.getElementById('coffee-name').addEventListener('keyup', keyCoffee);
 
 var tbody = document.querySelector('#coffees');
