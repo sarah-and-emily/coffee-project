@@ -56,7 +56,7 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
-// converts keyed-in coffee names to lowercase, matches them to the id "coffee-name"
+// converts keyed-in coffee names to lowercase, matches them to the id "coffee name"
 function keyCoffee() {
     var html = '';
     for(var i = 0; i < coffees.length; i++) {
@@ -68,9 +68,6 @@ function keyCoffee() {
     }
     return html;
 }
-
-
-
 
 
 //adds DOM event when keying in coffee name
@@ -86,49 +83,29 @@ roastSelection.addEventListener('change', updateCoffees);
 tbody.innerHTML = renderCoffees(coffees);
 
 //adds DOM event when clicking on the submit button
-submitButton.addEventListener('submit', updateCoffees);
+submitButton.addEventListener('click', updateCoffees);
 
 ////----------------------------
-//Below we are trying to create a function that pushes a new coffee into the coffees array
 
-// (bottom) adds DOM event when the dropdown button is changed/clicked
-// var roastSelection = document.querySelector('#roast-selection-bottom');
-// roastSelection.addEventListener('change', updateCoffees);
-//
 
-//example of push to array
-// function addACoffee(){
-//     newcoffee = document.getElementById('coffee-name').value;
-//     coffees.push(newcoffee);
-//     console.log(coffees);
-// }
-//
 
+//created a function that pushes a new coffee into the coffees array
 function addACoffee(){
-    // newcoffeename = document.getElementById('coffee-name').value;
-    // newcoffeeroast = document.getElementById('roast-selection-bottom').value;
-    // newcoffeeid = coffees.length + 1;
     var newCoffee = {
         id: coffees.length + 1,
-        name: document.getElementById('coffee-name').value,
+        name: document.getElementById('new-coffee-name').value,
         roast: document.getElementById('roast-selection-bottom').value
     };
     coffees.push(newCoffee);
     console.log(coffees);
+    tbody.innerHTML = renderCoffees(coffees);
 }
-addACoffee();
 
-// function updateCoffeeArray() {
-//     var newCoffeeObject = {
-//         name : ,
-//         roast: ,
-//         id:
-//     };
-//
-//     coffees.push({
-//
-//     }
-// });
+//Creating a variable for the second submit button
+var secondSubmitButton = document.querySelector('#second-submit');
+console.log(secondSubmitButton);
 
-// var tbody = document.querySelector('#coffees');
-// var bottomSubmitButton = document.querySelector('#second-submit');
+//Clicking the second button runs the addACoffee function which pushes a new coffee
+//into coffee array
+secondSubmitButton.addEventListener('click', addACoffee);
+
