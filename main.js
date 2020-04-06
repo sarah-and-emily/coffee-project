@@ -2,7 +2,7 @@
 
 //Renders coffee cards and put html tags on them
 function renderCoffee(coffee) {
-    var html = '<div class="card align-items-center">';
+    var html = '<div class="card border-white align-items-center">';
     // html += '<div>' + coffee.id + '</div>';
     html += '<h6>' + coffee.name + '</h6>';
     html += '<p>' + coffee.roast + '</p>';
@@ -20,18 +20,6 @@ function renderCoffees(coffees) {
     return html;
 }
 
-//This is the drop-down row selection
-function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
-    var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
-        if ((coffee.roast === selectedRoast) || (selectedRoast === "all")) {
-            filteredCoffees.push(coffee);
-        }
-    });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
-}
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -50,6 +38,21 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
+
+
+
+//This is the drop-down row selection
+function updateCoffees(e) {
+    e.preventDefault(); // don't submit the form, we just want to update the data
+    var selectedRoast = roastSelection.value;
+    var filteredCoffees = [];
+    coffees.forEach(function(coffee) {
+        if ((coffee.roast === selectedRoast) || (selectedRoast === "all") ) {
+            filteredCoffees.push(coffee);
+        }
+    });
+    tbody.innerHTML = renderCoffees(filteredCoffees);
+}
 
 // converts keyed-in coffee names to lowercase, matches them to the id "coffee-name"
 function keyCoffee() {
