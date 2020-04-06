@@ -60,7 +60,7 @@ function updateCoffees(e) {
 function keyCoffee() {
     var html = '';
     for(var i = 0; i < coffees.length; i++) {
-        if(coffees[i].name.toLowerCase().includes(document.getElementById('coffee-name').value.toLowerCase()) &&  (selectedRoast === coffees[i].roast.includes(document.getElementById('roast-selection-top').value))) {
+        if(coffees[i].name.toLowerCase().includes(document.getElementById('coffee-name').value.toLowerCase() && (selectedRoast === coffees[i].roast))) {
             console.log(coffees.name);
             html += renderCoffee(coffees[i]);
         }
@@ -71,13 +71,15 @@ function keyCoffee() {
 
 
 
+
+
 //adds DOM event when keying in coffee name
 document.getElementById('coffee-name').addEventListener('keyup', keyCoffee);
 
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#first-submit');
 
-// adds DOM event when the dropdown button is changed/clicked
+// (top) adds DOM event when the dropdown button is changed/clicked
 var roastSelection = document.querySelector('#roast-selection-top');
 roastSelection.addEventListener('change', updateCoffees);
 
@@ -86,3 +88,24 @@ tbody.innerHTML = renderCoffees(coffees);
 //adds DOM event when clicking on the submit button
 submitButton.addEventListener('submit', updateCoffees);
 
+////----------------------------
+//Below we are trying to create a function that pushes a new coffee into the coffees array
+
+// (bottom) adds DOM event when the dropdown button is changed/clicked
+var roastSelection = document.querySelector('#roast-selection-bottom');
+roastSelection.addEventListener('change', updateCoffees);
+
+function updateCoffeeArray() {
+    var newCoffeeObject = {
+        name : ,
+        roast: ,
+        id:
+    };
+
+    coffees.push({
+
+    }
+});
+
+var tbody = document.querySelector('#coffees');
+var bottomSubmitButton = document.querySelector('#second-submit');
